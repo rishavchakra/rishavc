@@ -1,0 +1,113 @@
+* {
+	font-family:'Montserrat', sans-serif;
+	font-weight: 400;
+	transition: all 0.5s;
+	scroll-behavior: smooth;
+}
+
+/* header {
+	width: 100%;
+	position: sticky;
+	top: 0;
+} */
+
+#headline h1 {
+	color: white;
+	letter-spacing: 0.5rem;
+	font-size: 6rem;
+}
+
+nav {
+	width: 100%;
+	position: sticky;
+	top: 0;
+}
+
+nav ul {
+	background-color: black;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+nav ul li {
+	margin: 4px 16px;
+}
+
+.navlink {
+	font-size: 2em;
+	text-decoration: none;
+	color: white;
+}
+
+.navlink:hover {
+	/* text-decoration: underline; */
+	letter-spacing: 0.3em;
+}
+
+section {
+	width: 100%;
+	background-color: rgb(85, 82, 80);
+	text-align: center;
+	padding: 1em;
+}
+
+.title {
+	color: white;
+	letter-spacing: 0.5rem;
+	font-size:4rem;
+}
+
+.programs {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.programs img {
+	height: 10em;
+	margin: 1em;
+}
+
+.programs img:hover {
+	height: 11em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.work_item {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	color: seashell;
+	padding: 2em;
+}
+
+.exp_item {
+	width: 20vw;
+}
+
+.exp_title {
+	font-size: 3rem;
+	letter-spacing: 0.2rem;
+	text-decoration: underline;
+}
+
+.exp_subtitle {
+	font-size: 2rem;
+	margin: 1rem 0;
+}
+
+.exp_position {
+	font-size: 2rem;
+}
+
+.exp_desc {
+	font-size: 1.5rem;
+}
+
+.exp_img {
+	height: 20vw;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Rishav C</title>
+  <link rel="stylesheet" type="text/css" href="public/style.css">
+  <link rel="stylesheet" type="text/css" href="public/reset.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script src="scripts/contact.js"></script>
+</head>
+
+<body>
+  <section id="headline">
+    <h1>RISHAV CHAKRAVARTY</h1>
+  </section>
+  <nav id="navbar">
+    <ul>
+      <li><a class="navlink" href="#">HOME</a></li>
+      <li><a class="navlink" href="#about">ABOUT</a></li>
+      <li><a class="navlink" href="#art">ART</a></li>
+      <li><a class="navlink" href="#work">WORK</a></li>
+      <li><a class="navlink" href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="about">
+      <h2 class="title">ABOUT ME</h2>
+
+      <div>
+        <!-- <img src="public/img/IMG_6911.jpeg"> -->
+      </div>
+    </section>
+
+    <section id="art">
+      <h2 class="title">ART</h2>
+
+      <div id="exhibition">
+
+      </div>
+
+      <div id="software">
+        <h3 class="title">SOFTWARE</h3>
+        <div class="programs">
+          <img src="https://download.blender.org/branding/blender_logo_socket.png">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Calligrakrita-base.svg/1200px-Calligrakrita-base.svg.png">
+          <img src="https://www.pngkey.com/png/full/764-7646559_davinci-resolve-4-davinci-resolve-icon-png.png">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/1200px-Adobe_Photoshop_CC_icon.svg.png">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Adobe_Premiere_Pro_CC_icon.svg/788px-Adobe_Premiere_Pro_CC_icon.svg.png">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png">
+          <img
+            src="https://resources.jetbrains.com/storage/products/intellij-idea/img/meta/intellij-idea_logo_300x300.png">
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <h2 class="title">WORK</h2>
+
+      <div id="ARL" class="work_item">
+        <div class="exp_item">
+          <h2 class="exp_title">ARL:UT</h2>
+          <h3 class="exp_subtitle">Applied Research Laboratories at the University of Texas Austin J.J. Pickle Center
+          </h3>
+          <h3 class="exp_position">Apprentice/Research Assistant</h3>
+        </div>
+        <p class="exp_desc">
+          ARL:UT is a University-Affiliated Research Center (UARC) partnered with the
+          University of Texas at Austin. It recieves funding from and contracts
+          with the US Navy.
+          I worked in the Signal and Informational Sciences Laboratory (SISL)
+          in the Geospatial Laser Applications & Measurements (GLAM) group with
+          NASA.
+          <br>
+          We focused on glacial LiDAR imaging, data visualization, and fluid dynamics.
+          By the end of my apprenticeship, my partner and I wrote a paper about
+          calculating the turbulence of a glacial plume from its satellite LiDAR
+          signature.
+        </p>
+        <img class="exp_img" src="https://wwwext.arlut.utexas.edu/sbcex/img/ARL_logo_min.png" />
+      </div>
+    </section>
+
+    <section id="languages">
+      <h2 class="title">LANGUAGES</h2>
+
+      <div class="programs">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/2048px-Rust_programming_language_black_logo.svg.png">
+        <img src="https://seeklogo.com/images/J/java-logo-7F8B35BAB3-seeklogo.com.png">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1200px-ISO_C%2B%2B_Logo.svg.png">
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="title">CONTACT</h2>
+      <input class="input_text" placeholder="Name"/>
+      <input class="input_text" placeholder="Message"/>
+      <input class="input_button" type="button" value="SEND" onClick="sendEmail()"/>
+    </section>
+
+  </main>
+</body>
