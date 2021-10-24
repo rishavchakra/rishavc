@@ -11,7 +11,7 @@ function skill_hover(category) {
 	}
 	if (category === 2) {
 		skill_list = document.getElementById('vid_details');
-		non_assoc_apps = ['blender', 'krita', 'vscode', 'intellij'];
+		non_assoc_apps = ['blender', 'krita', 'photoshop', 'vscode', 'intellij'];
 	}
 	// I don't know how to make it scale smoothly...
 	// I'm not sure if it's even possible without a lot of JS
