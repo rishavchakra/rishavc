@@ -185,6 +185,7 @@ nav ul li {
 .input_text {
 	width: 70%;
 	line-height: 2rem;
+	color: black;
 	display: inline-block;
 	word-wrap: break-word;
 	word-break: break-all;
