@@ -138,6 +138,29 @@ nav ul li {
 	transform: scaleY(0);
 }
 
+.project {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	display: inline-block;
+	width: 80%;
+	margin-bottom: 1.2rem;
+}
+
+.project_title {
+	text-align: left;
+	margin-bottom: 1rem;
+}
+
+.project_title h3 {
+	font-size: 2rem;
+}
+
+.project_desc {
+	text-align: right;
+}
+
 /* Program icons */
 .programs {
 	display: flex;
