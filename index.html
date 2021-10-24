@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="public/reset.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
   <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="scripts/contact.js"></script>
   <script src="scripts/skill_hover.js"></script>
 </head>
@@ -33,7 +34,7 @@
 
       <div>
         <p>
-          I'm Rishav Chakravarty!<br><br>
+          Hi! I'm Rishav Chakravarty.<br><br>
           I was born in Round Rock, Texas, and currently live in Hanover, New Hampshire.<br>
           I'm an undergraduate student ('25) at Dartmouth College, and I'm considering
           studying English and Computer Science.
@@ -57,6 +58,8 @@
         make someone happy, I'm satisfied.
       </p>
 
+      <h2 class="title">PROJECTS</h2>
+      
       <h2 class="title">LANGUAGES</h2>
 
       <div class="programs">
@@ -155,13 +158,23 @@
         <img class="exp_img" src="https://wwwext.arlut.utexas.edu/sbcex/img/ARL_logo_min.png" />
       </div>
     </section>
-
+<!-- Site Key for rishavc.me -->
+<!-- 6LeGj-0cAAAAADpmxwEdjTwZATDvpGpu_3t10rVP -->
+<!-- Test Site Key -->
+<!-- 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI -->
     <section id="contact">
       <h2 class="title">CONTACT</h2>
       <div id="contact_input">
         <input class="input_text" id="inp_title" placeholder="Name" />
         <textarea class="input_text" id="inp_msg" placeholder="Message *" rows="4"></textarea>
-        <input class="input_button" type="button" value="SEND" onClick="sendEmail()" />
+        <div 
+          class="g-recaptcha" id="recaptcha"
+          data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+          data-callback="onSubmit" data-size="invisible"></div>
+        <button class="input_button" value="SEND" onClick="sendEmail()">SEND</button>
+        <p>This site is protected by reCAPTCHA and the Google
+          <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+          <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
       </div>
     </section>
 

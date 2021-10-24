@@ -58,6 +58,7 @@ section {
 
 nav {
 	background-color: #141B41;
+	filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.4));
 	width: 100%;
 	position: sticky;
 	z-index: 1;
@@ -205,6 +206,7 @@ nav ul li {
 	width: 70%;
 	height: 4rem;
 	font-size: 2rem;
+	border: none;
 	background-color: #224377;
 }
 
@@ -212,4 +214,12 @@ nav ul li {
 	letter-spacing: 0.8rem;
 	background-color: #306BAC;
 	cursor: pointer;
+}
+
+#contact_input p {
+	font-size: 0.8rem;
+}
+
+.grecaptcha-badge {
+	visibility: hidden;
 }
