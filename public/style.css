@@ -1,30 +1,70 @@
 * {
 	font-family:'Montserrat', sans-serif;
 	font-weight: 400;
+	font-size: 1.5rem;
+	color: white;
 	transition: all 0.5s;
 	scroll-behavior: smooth;
 }
 
-/* header {
-	width: 100%;
-	position: sticky;
-	top: 0;
-} */
+/* Section styling and colors */
 
+section {
+	width: 100%;
+	background-color: rgb(80, 85, 90);
+	text-align: center;
+	padding: 1em;
+	filter: drop-shadow(0 -12px 12px rgba(0, 0, 0, 0.3));
+}
+
+#headline {
+	background-color: #1b2a53;
+}
+
+#about {
+	background-color: #306BAC;
+}
+
+#code {
+	background-color: #224377;
+}
+
+#art {
+	background-color: #306BAC;
+}
+
+#work {
+	background-color: #224377;
+}
+
+#contact {
+	background-color: #141B41;
+}
+
+.title {
+	letter-spacing: 0.5rem;
+	font-size:4rem;
+}
+
+.title:hover {
+	letter-spacing: 0.75rem;
+}
+
+/* Headline and Nav bar styling */
 #headline h1 {
-	color: white;
 	letter-spacing: 0.5rem;
 	font-size: 6rem;
 }
 
 nav {
+	background-color: #141B41;
 	width: 100%;
 	position: sticky;
+	z-index: 1;
 	top: 0;
 }
 
 nav ul {
-	background-color: black;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
@@ -37,27 +77,45 @@ nav ul li {
 .navlink {
 	font-size: 2em;
 	text-decoration: none;
-	color: white;
 }
 
 .navlink:hover {
-	/* text-decoration: underline; */
 	letter-spacing: 0.3em;
 }
 
-section {
-	width: 100%;
-	background-color: rgb(85, 82, 80);
-	text-align: center;
-	padding: 1em;
+/* About styling */
+#about div {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
 }
 
-.title {
-	color: white;
-	letter-spacing: 0.5rem;
-	font-size:4rem;
+#about div img {
+	width: 20vw;
+	filter: drop-shadow(0 -4px 4px rgba(0, 0, 0, 0.4));
 }
 
+#about div p {
+	font-size: 1.5rem;
+	width: 70vw;
+	line-height: 2rem;
+}
+
+.art_exp {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.art_details {
+	margin-top: 8px;
+	transition-duration: 0.5s;
+	line-height: 0;
+	transform: scaleY(0);
+}
+
+/* Program icons */
 .programs {
 	display: flex;
 	flex-direction: row;
@@ -68,6 +126,8 @@ section {
 .programs img {
 	height: 10em;
 	margin: 1em;
+	font-size: 1rem;
+	filter: drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
 }
 
 .programs img:hover {
@@ -76,6 +136,7 @@ section {
 	margin-bottom: 0.5em;
 }
 
+/* Work experience item(s) */
 .work_item {
 	display: flex;
 	flex-direction: row;
@@ -83,10 +144,6 @@ section {
 	align-items: center;
 	color: seashell;
 	padding: 2em;
-}
-
-.exp_item {
-	width: 20vw;
 }
 
 .exp_title {
@@ -110,4 +167,48 @@ section {
 
 .exp_img {
 	height: 20vw;
+}
+
+#code_desc {
+	margin: 0 auto;
+	width: 70%;
+}
+
+/* Contact form and submission */
+#contact_input {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.input_text {
+	width: 70%;
+	line-height: 2rem;
+	display: inline-block;
+	word-wrap: break-word;
+	word-break: break-all;
+	margin: 2px;
+}
+
+.input_text#inp_title {
+	font-size: 2rem;
+}
+
+.input_text#inp_msg {
+	font-size: 1.5rem;
+	resize: none;
+}
+
+.input_button {
+	width: 70%;
+	height: 4rem;
+	font-size: 2rem;
+	background-color: #224377;
+}
+
+.input_button:hover {
+	letter-spacing: 0.8rem;
+	background-color: #306BAC;
+	cursor: pointer;
 }
