@@ -7,14 +7,6 @@
 	scroll-behavior: smooth;
 }
 
-html,body {
-	/* width: 100%;
-	height: 100%;
-	margin: 0px;
-	padding: 0px; */
-	overflow-x: hidden;
-}
-
 img {
 	image-resolution: 300dpi;
 }
@@ -24,6 +16,7 @@ img {
 main {
 	display: flex;
 	flex-direction: column;
+	overflow-x: hidden;
 }
 
 section {
@@ -72,6 +65,10 @@ section {
 #headline h1 {
 	letter-spacing: 0.5rem;
 	font-size: 6rem;
+}
+
+#headline h1:hover {
+	letter-spacing: 0.8rem;
 }
 
 nav {
@@ -186,6 +183,7 @@ nav ul li {
 
 /* Program icons */
 .programs {
+	/* width: auto; */
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -194,7 +192,9 @@ nav ul li {
 
 .programs img {
 	height: 10em;
+	/* width: auto; */
 	margin: 1em;
+	/* margin: 0 1em; */
 	font-size: 1rem;
 	filter: drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
 }
