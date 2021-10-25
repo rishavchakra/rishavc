@@ -16,7 +16,7 @@ img {
 main {
 	display: flex;
 	flex-direction: column;
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 }
 
 section {
@@ -49,6 +49,7 @@ section {
 
 #contact {
 	background-color: #141B41;
+	overflow-x: hidden;
 }
 
 .title {
