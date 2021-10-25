@@ -2,6 +2,7 @@
 
 const e = React.createElement;
 
+// Easily repeatable react component for a Code Project item
 class Project extends React.Component {
 	constructor(props) {
 		super(props);
