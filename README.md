@@ -1,5 +1,8 @@
 # Rishav Chakravarty's personal website: [rishavc.me](http://rishavc.me)
 
+## General
+Try hovering over random elements! I tried to make the website as gooey and reactive as possible and feasible.
+
 ## Code
 Check out my [Github page](https://github.com/rishavchakra) to see some of my work! It's currently a little sparse, but I plan to keep it better updated with my projects in the future.
 
