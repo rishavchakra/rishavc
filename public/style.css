@@ -7,6 +7,10 @@
 	scroll-behavior: smooth;
 }
 
+img {
+	image-resolution: 300dpi;
+}
+
 /* Section styling and colors */
 
 section {
@@ -97,6 +101,12 @@ nav ul li {
 #about div img {
 	width: 20vw;
 	filter: drop-shadow(0 -4px 4px rgba(0, 0, 0, 0.4));
+	margin-bottom: -64px;
+}
+
+#about div img:hover {
+	margin-bottom: 0px;
+	transform: translateY(16px);
 }
 
 #about div p {
