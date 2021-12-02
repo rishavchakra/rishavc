@@ -75,6 +75,10 @@ section {
   height: 100vh;
 }
 
+.RenderCanvas {
+  height: 100vh;
+}
+
 .gallery {
   display: flex;
   flex-direction: row;
