@@ -1,5 +1,7 @@
 import React, { useRef } from 'react'
 import {Canvas, useFrame} from '@react-three/fiber'
+import { EffectComposer, Bloom, Scanline, ChromaticAberration } from '@react-three/postprocessing'
+
 
 import GroundShaderMaterial from './shaders/synthwaveGround'
 
@@ -62,6 +64,11 @@ function SynthwaveScene(props) {
 	return (<div className="RenderCanvas">
 		<Canvas>
 			<Ground timescale={0.0002}/>
+			<EffectComposer>
+				<ChromaticAberration />
+				<Bloom luminanceThreshold={0} luminanceSmoothing={1} height={1000} />
+				<Scanline />
+			</EffectComposer>
 		</Canvas>
 	</div>)
 }
