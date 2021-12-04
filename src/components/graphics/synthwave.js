@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import {Canvas, useFrame} from '@react-three/fiber'
 
+import GroundShaderMaterial from './shaders/synthwaveGround'
+
 /**
  * Ground for the Synthwave scene
  * @param {{timescale: number}} props 
@@ -8,34 +10,23 @@ import {Canvas, useFrame} from '@react-three/fiber'
  * @returns an R3F mesh component of the ground
  */
 function Ground(props) {
-	/**
-	 * Custom GLSL Shader material
-	 * Uniforms: u_time Used to change the W of the 4D noise
-	 * Alternatively: changes Y coordinate of noise to replicate waves/movement
-	 * Vertex Shader: Handles Perlin noise displacement
-	 * Fragment Shader: Handles tri to quad wireframe calculation
-	 */
-	const GroundShaderMaterial = {
-		uniforms: {
-			u_time: { type: "f", value: 0 } 
-		},
-		vertexShader: '',
-		fragmentShader: ''
-	}
-
 	const groundMesh = useRef()
 	useFrame(({ clock }) => { // Varies the shader's time uniform
-		// groundMesh.current.material.uniforms.u_time.value = clock.oldTime * props.timescale
+		groundMesh.current.material.uniforms.u_time.value = clock.oldTime * props.timescale
 	})
 
 	return (
-		<mesh ref={groundMesh}>
-			<planeBufferGeometry args={[2, 2, 4, 4]} />
+		<mesh ref={groundMesh}
+			position={[0, -2, 0]}
+			rotation={[-70, 0, 0]}
+		>
+			<planeGeometry args={[30, 30, 16, 16]}/>
+			{/* <sphereGeometry /> */}
 			{/* Test wireframe material */}
-			<meshBasicMaterial wireframe={true} /> 
+			{/* <meshBasicMaterial wireframe={true} />  */}
 
 			{/* Custom shader material */}
-			{/* <shaderMaterial attach="material" args={[GroundShaderMaterial]} /> */}
+			<shaderMaterial attach="material" args={[GroundShaderMaterial]} />
 		</mesh>
 	)
 }
@@ -70,7 +61,7 @@ function Sun(props) {
 function SynthwaveScene(props) {
 	return (<div className="RenderCanvas">
 		<Canvas>
-			<Ground timescale={0.0001}/>
+			<Ground timescale={0.0002}/>
 		</Canvas>
 	</div>)
 }
