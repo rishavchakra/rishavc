@@ -25,17 +25,17 @@ function Ground(props) {
 
 	const groundMesh = useRef()
 	useFrame(({ clock }) => { // Varies the shader's time uniform
-		groundMesh.current.material.uniforms.u_time.value = clock.oldTime * props.timescale
+		// groundMesh.current.material.uniforms.u_time.value = clock.oldTime * props.timescale
 	})
 
 	return (
-		<mesh>
+		<mesh ref={groundMesh}>
 			<planeBufferGeometry args={[2, 2, 4, 4]} />
 			{/* Test wireframe material */}
-			{/* <meshBasicMaterial wireframe={true} /> */} 
+			<meshBasicMaterial wireframe={true} /> 
 
 			{/* Custom shader material */}
-			<shaderMaterial attach="material" args={[GroundShaderMaterial]} />
+			{/* <shaderMaterial attach="material" args={[GroundShaderMaterial]} /> */}
 		</mesh>
 	)
 }
