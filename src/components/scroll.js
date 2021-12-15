@@ -13,7 +13,7 @@ function ScrollContainer(props) {
             }
             containerRef={containerRef}
         >
-            <main data-scroll-container ref={containerRef} >
+            <main data-scroll-container ref={containerRef}>
                 {props.children}
             </main>
         </LocomotiveScrollProvider>

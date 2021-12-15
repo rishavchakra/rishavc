@@ -8,5 +8,4 @@ module.exports = {
       'customsans': ['Rubik']
     }
   },
-  plugins: [],
 }

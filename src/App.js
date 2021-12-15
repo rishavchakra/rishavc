@@ -1,21 +1,27 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
-import locomotiveScroll from 'locomotive-scroll';
 import './styles/locomotive-scroll.css'
 
 import ScrollContainer from './components/scroll';
 import Page from './components/page'
 import SectionTitle from './components/title';
 
+import SynthwaveScene from './components/graphics/synthwave'
+
 function App() {
 
   return (
-    <ScrollContainer>
-      <Page>
+    <ScrollContainer className="overscroll-none">
+      {/* <Page>
         <SectionTitle text="Rishav Chakravarty" />
       </Page>
+
       <Page>
-        <h1>bop</h1>
+        <SectionTitle text="About Me" />
+      </Page> */}
+
+      <Page>
+        <SynthwaveScene className="w-full h-full bg-red-500"/>
       </Page>
     </ScrollContainer>
   );
