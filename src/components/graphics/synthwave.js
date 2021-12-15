@@ -4,6 +4,7 @@ import { EffectComposer, Bloom, Scanline, ChromaticAberration } from '@react-thr
 
 
 import GroundShaderMaterial from './shaders/synthwaveGround'
+import SunShaderMaterial from './shaders/synthwaveSun'
 
 /**
  * Ground for the Synthwave scene
@@ -23,10 +24,6 @@ function Ground(props) {
 			rotation={[-Math.PI/2, 0, 0]}
 		>
 			<planeGeometry args={[30, 90, 20, 60]}/>
-			{/* <sphereGeometry /> */}
-			{/* Test wireframe material */}
-			{/* <meshBasicMaterial wireframe={true} />  */}
-
 			{/* Custom shader material */}
 			<shaderMaterial attach="material" args={[GroundShaderMaterial]} />
 		</mesh>
@@ -34,22 +31,18 @@ function Ground(props) {
 }
 
 function Sun(props) {
-	const SunShaderMaterial = {
-		uniforms: {
-			u_time: { type: "f", value: 0 }
-		},
-		vertexShader: '',
-		fragmentShader: ''
-	}
-
 	const sunMesh = useRef()
 	useFrame(({ clock }) => {
 		sunMesh.current.material.uniforms.u_time.value = clock.oldTime * props.timescale
 	})
 
 	return (
-		<mesh>
-			<circleGeometry args={[5, 32]} position={[-20, 0, -20]} />
+		<mesh ref={sunMesh}
+			position={[0, 7, 50]}
+			rotation={[0, Math.PI, 0]} // Inverts the circle to face the right direction (why is it faced the wrong way by default?)
+		>
+			<circleGeometry args={[12, 32]}/>
+			{/* <meshBasicMaterial/> */}
 			<shaderMaterial attach="material" args={[SunShaderMaterial]} />
 		</mesh>
 	)
@@ -68,10 +61,11 @@ function SynthwaveScene(props) {
 			}}
 			className="h-full"
 		>
+			<Sun timescale={0.0005} />
 			<Ground timescale={0.0002}/>
 			<EffectComposer>
+				<Bloom luminanceThreshold={0.1} height={1000} width={900} />
 				<ChromaticAberration />
-				<Bloom luminanceThreshold={0} luminanceSmoothing={1} height={1000} />
 				<Scanline opacity={0.5} density={8.5}/>
 			</EffectComposer>
 		</Canvas>
