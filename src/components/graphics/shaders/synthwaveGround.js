@@ -8,11 +8,13 @@ import noise4D from "./noise"
  const GroundShaderMaterial = {
 	uniforms: {
 		u_time: { type: "f", value: 0 },
+		u_pos: { type: 'f', value: 0 }
 	},
 	vertexShader: noise4D + `
 		precision mediump float;
 
 		uniform float u_time;
+		uniform float u_pos;
 
 		varying vec2 vUv; // UV coordinates
 		varying float vNoiseDisp;
@@ -31,9 +33,12 @@ import noise4D from "./noise"
 
 		void main() {
 			vUv = uv;
-			
+
+			// Moves the noise along the y axis to simulate moving forward/back
+			vec3 pos_adj = vec3(position.x, position.y - u_pos, position.z);
+
 			vNoiseDisp = snoise( vec4(position, u_time) ) * 0.8;
-			float hills_displacement = snoise( vec4(position / 10.0, u_time / 16.0) ) + 1.0;
+			float hills_displacement = snoise( vec4(pos_adj / 10.0, u_time / 20.0) ) + 1.0;
 			float adj_hills_displacement = height_curve(vUv.x) * hills_displacement;
 
 			vec3 disp_position = position + vec3(0., 0., vNoiseDisp + adj_hills_displacement );

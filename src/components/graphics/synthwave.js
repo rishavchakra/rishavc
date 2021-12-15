@@ -17,6 +17,8 @@ function Ground(props) {
 	const groundMesh = useRef()
 	useFrame(({ clock }) => { // Varies the shader's time uniform
 		groundMesh.current.material.uniforms.u_time.value = clock.oldTime * props.timescale
+		// TODO: Make this affected by scrolling instead of time
+		groundMesh.current.material.uniforms.u_pos.value = clock.oldTime * props.movescale
 	})
 
 	return (
@@ -39,7 +41,7 @@ function Sun(props) {
 
 	return (
 		<mesh ref={sunMesh}
-			position={[0, 7, 50]}
+			position={[0, 6, 50]}
 			rotation={[0, Math.PI, 0]} // Inverts the circle to face the right direction (why is it faced the wrong way by default?)
 		>
 			<circleGeometry args={[10, 32]}/>
@@ -51,13 +53,13 @@ function Sun(props) {
 function Rays(props) {
 	const rayMesh = useRef()
 	useFrame(({ clock }) => {
-		rayMesh.current.rotation.z = clock.oldTime * props.rot_timescale;
-		rayMesh.current.material.uniforms.u_time.value = clock.oldTime * props.timescale;
+		rayMesh.current.rotation.z = clock.oldTime * props.rot_timescale
+		rayMesh.current.material.uniforms.u_time.value = clock.oldTime * props.timescale
 	})
 
 	return (
 		<mesh ref={rayMesh}
-			position={[0, 7, 51]}
+			position={[0, 6, 51]}
 			rotation={[0, Math.PI, 0]}
 		>
 			<circleGeometry args={[28, 32]} />
@@ -81,7 +83,7 @@ function SynthwaveScene(props) {
 		>
 			<Sun timescale={0.0005} />
 			<Rays rot_timescale={0.00015} timescale={0.00005} />
-			<Ground timescale={0.0002}/>
+			<Ground timescale={0.0002} movescale={0.001}/>
 			<EffectComposer>
 				{/* <Bloom luminanceThreshold={0.1} height={1000} width={900} /> */}
 				<ChromaticAberration />
