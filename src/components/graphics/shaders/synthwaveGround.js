@@ -2,7 +2,6 @@ import noise4D from "./noise"
 /**
  * Custom GLSL Shader material
  * Uniforms: u_time Used to change the W of the 4D noise
- * Alternatively: changes Y coordinate of noise to replicate waves/movement
  * Vertex Shader: Handles Perlin noise displacement
  * Fragment Shader: Handles tri to quad wireframe calculation
  */
@@ -12,12 +11,13 @@ import noise4D from "./noise"
 	},
 	vertexShader: noise4D + `
 		precision mediump float;
+
 		uniform float u_time;
-		varying vec2 vUv;
-		varying vec3 vNormal;
+
+		varying vec2 vUv; // UV coordinates
 		varying float vNoiseDisp;
 
-		// Witch of Agnesi function
+		// Witch of Agnesi function, not used in current implementation
 		float agnesi(float x, float exp) {
 			return 1.0 / (1.0 + pow(x, exp));
 		}
@@ -31,8 +31,6 @@ import noise4D from "./noise"
 
 		void main() {
 			vUv = uv;
-			// vNormal = normal; doesn't work because displacement is done by the vertex shader
-			vNormal = normal;
 			
 			vNoiseDisp = snoise( vec4(position, u_time) ) * 0.8;
 			float hills_displacement = snoise( vec4(position / 10.0, u_time / 16.0) ) + 1.0;
@@ -44,7 +42,6 @@ import noise4D from "./noise"
 	`,
 	fragmentShader: `
 		varying vec2 vUv;
-		varying vec3 vNormal;
 		varying float vNoiseDisp;
 
 		const float wire_width = 0.06;
@@ -54,8 +51,8 @@ import noise4D from "./noise"
 		const float num_verts_w = 20.0; // Number of horizontal vertices
 		const float num_verts_d = 60.0; // Number of depth vertices
 
-		const vec3 col1 = vec3(1.0, 0.54509, 0.349019);
-		const vec3 col2 = vec3(1.0, 0.349, 0.6);
+		const vec3 col1 = vec3(1.0, 0.54509, 0.349019); // Pinkish color
+		const vec3 col2 = vec3(1.0, 0.349, 0.6); // Orange color
 
 		void main() {
 			vec2 uv_grid = mod( vec2(vUv.x * num_verts_w, vUv.y * num_verts_d), 1.0 );
