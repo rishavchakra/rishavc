@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import {Canvas, useFrame} from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { EffectComposer, Bloom, Scanline, ChromaticAberration } from '@react-three/postprocessing'
 
 
@@ -19,10 +19,10 @@ function Ground(props) {
 
 	return (
 		<mesh ref={groundMesh}
-			position={[0, -2, 0]}
-			rotation={[-70, 0, 0]}
+			position={[0, 0, 0]}
+			rotation={[-Math.PI/2, 0, 0]}
 		>
-			<planeGeometry args={[30, 30, 16, 16]}/>
+			<planeGeometry args={[30, 90, 20, 60]}/>
 			{/* <sphereGeometry /> */}
 			{/* Test wireframe material */}
 			{/* <meshBasicMaterial wireframe={true} />  */}
@@ -61,13 +61,18 @@ function Sun(props) {
  * @returns a React Component of the R3F Canvas
  */
 function SynthwaveScene(props) {
-	return (<div className="RenderCanvas">
-		<Canvas>
+	return (<div className="h-full">
+		<Canvas
+			camera={{
+				position: [0, 3, -15]
+			}}
+			className="h-full"
+		>
 			<Ground timescale={0.0002}/>
 			<EffectComposer>
 				<ChromaticAberration />
 				<Bloom luminanceThreshold={0} luminanceSmoothing={1} height={1000} />
-				<Scanline />
+				<Scanline opacity={0.5} density={8.5}/>
 			</EffectComposer>
 		</Canvas>
 	</div>)
