@@ -43,7 +43,7 @@
 			float gradient = map(vUv.y, 0.3, 1., 0., 1., true); // what?
 			vec3 color = (gradient * col2) + ((1.-gradient) * col1);
 
-			gl_FragColor = vec4(color * stripes, 1.0);
+			gl_FragColor = vec4(color, stripes);
 		}
 	`
 }
