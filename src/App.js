@@ -1,29 +1,24 @@
-import React from 'react';
-
-import './styles/locomotive-scroll.css'
-
-import ScrollContainer from './components/scroll';
-import Page from './components/page'
-import SectionTitle from './components/title';
-
-import SynthwaveScene from './components/graphics/synthwave'
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-
   return (
-    <ScrollContainer className="overscroll-none">
-      {/* <Page>
-        <SectionTitle text="Rishav Chakravarty" />
-      </Page>
-
-      <Page>
-        <SectionTitle text="About Me" />
-      </Page> */}
-
-      <Page>
-        <SynthwaveScene className="w-full h-full bg-red-500"/>
-      </Page>
-    </ScrollContainer>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
