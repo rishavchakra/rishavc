@@ -4,7 +4,7 @@
 	@for $i from 1 through $num-sections {
 		&:nth-child(#{$i}) {
 			top: #{$section-spacing * ($i - 1)}em;
-			z-index: #{$i};
+			// z-index: #{$i};
 			height: calc(100vh - #{$section-spacing * ($i - 1)}em);
 		}
 	}

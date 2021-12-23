@@ -1,4 +1,4 @@
-@import 'mixins';
+@import "mixins";
 
 .name-page {
   height: 100vh;
@@ -6,13 +6,15 @@
   justify-content: center;
   align-items: center;
 
-  background-image: linear-gradient(pink, orange);
+  background-image: linear-gradient(#f472b6, #fdba74);
 }
 
 .name-title {
+  font-size: 4rem;
+  font-weight: normal;
   transition: $hover-duration;
   &:hover {
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.8rem;
   }
 }
 
@@ -24,10 +26,22 @@
   @include section-color;
 
   .section-title {
+    font-size: 3rem;
+    font-weight: normal;
     transition: $hover-duration;
     margin-left: 0.5em;
     &:hover {
-      letter-spacing: 0.5rem;
+      letter-spacing: 0.6rem;
     }
+  }
+}
+
+.render-canvas-container {
+  height: 100vh;
+  width: 100vw;
+
+  .render-canvas {
+    height: 100%;
+    background-image: linear-gradient(#0e0335, #3426b6);
   }
 }
