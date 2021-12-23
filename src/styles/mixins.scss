@@ -1,0 +1,10 @@
+@import 'variables';
+
+@mixin section-spacing {
+	@for $i from 0 to $num-sections {
+		&:nth-child(#{$i}) {
+			top: #{2 * $i - 2}em;
+			z-index: #{$i};
+		}
+	}
+}

@@ -1,0 +1,12 @@
+@import 'mixins';
+
+.section {
+  min-height: 100vh;
+  position: sticky;
+  @include section-spacing;
+  .section-title {
+    &:hover {
+      letter-spacing: 0.5rem;
+    }
+  }
+}
