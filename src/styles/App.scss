@@ -1,10 +1,31 @@
 @import 'mixins';
 
+.name-page {
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  background-image: linear-gradient(pink, orange);
+}
+
+.name-title {
+  transition: $hover-duration;
+  &:hover {
+    letter-spacing: 0.5rem;
+  }
+}
+
 .section {
-  min-height: 100vh;
   position: sticky;
+  border-radius: 12px;
+  filter: drop-shadow(0 -8px 8px rgba(0, 0, 0, 0.3));
   @include section-spacing;
+  @include section-color;
+
   .section-title {
+    transition: $hover-duration;
+    margin-left: 0.5em;
     &:hover {
       letter-spacing: 0.5rem;
     }

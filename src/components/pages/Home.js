@@ -2,22 +2,30 @@ import './../../styles/App.scss';
 
 import Section from '../section'
 
-function App() {
+function Home() {
   return (
-    <div className="App section-container">
-      <Section title="About Me">
+    <div className="App">
+      <div className="name-page">
+        <h1 className="name-title">Rishav Chakravarty</h1>
+      </div>
 
-      </Section>
+      <div className="section-container">
 
-      <Section title="Code">
-        
-      </Section>
+        <Section title="About Me">
 
-      <Section title="Art">
+        </Section>
 
-      </Section>
+        <Section title="Code">
+
+        </Section>
+
+        <Section title="Art">
+
+        </Section>
+
+      </div>
     </div>
   );
 }
 
-export default App;
+export default Home;

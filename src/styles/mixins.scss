@@ -1,10 +1,19 @@
 @import 'variables';
 
 @mixin section-spacing {
-	@for $i from 0 to $num-sections {
+	@for $i from 1 through $num-sections {
 		&:nth-child(#{$i}) {
-			top: #{2 * $i - 2}em;
+			top: #{$section-spacing * ($i - 1)}em;
 			z-index: #{$i};
+			height: calc(100vh - #{$section-spacing * ($i - 1)}em);
+		}
+	}
+}
+
+@mixin section-color {
+	@for $i from 1 through $num-sections {
+		&:nth-child(#{$i}) {
+			background: #{nth($section-colors, $i)};
 		}
 	}
 }
