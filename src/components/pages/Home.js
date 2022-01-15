@@ -11,19 +11,19 @@ function Home() {
 
       <div className="section-container">
 
-        <Section title="About Me">
+        <Section title="About Me" img="bg-stacked-steps">
 
         </Section>
 
-        <Section title="Code">
+        <Section title="Code" img="bg-poly-grid">
 
         </Section>
 
-        <Section title="Art">
+        <Section title="Art" img="bg-stacked-waves">
 
         </Section>
 
-        <Section title="Contact" noflavor={true}>
+        <Section title="Contact Me" noflavor={true} img='bg-stars'>
 
         </Section>
 

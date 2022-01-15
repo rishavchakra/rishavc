@@ -9,9 +9,12 @@
   white-space: nowrap;
 
   background: linear-gradient(#f472b6, #fdba74);
-  
-  &::after { /* Filling in the weird gap */
-    content: '';
+
+  perspective: 10px;
+
+  &::after {
+    /* Filling in the weird gap */
+    content: "";
     position: absolute;
     background-color: #fdba74;
     height: 100%;
@@ -23,6 +26,12 @@
 .name-title {
   font-size: 4rem;
   font-weight: normal;
+  justify-content: center;
+
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.5));
+  transform-style: preserve-3d;
+  transform: translateZ(-10px) scale(2);
+
   transition: $hover-duration;
   &:hover {
     letter-spacing: 0.8rem;
@@ -32,6 +41,8 @@
 .section {
   position: sticky;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
   filter: drop-shadow(0 -8px 8px rgba(0, 0, 0, 0.3));
   @include section-spacing;
   @include section-color;
@@ -40,7 +51,8 @@
     font-size: 3rem;
     font-weight: normal;
     transition: $hover-duration;
-    margin-left: 0.5em;
+    margin-left: 1rem;
+    margin-block: 0;
     width: fit-content;
     &:hover {
       letter-spacing: 0.6rem;
@@ -48,10 +60,17 @@
   }
 
   .section-body {
-    position: relative;
-    height: calc(100%-3rem);
-    width: 100vw;
+    // position: absolute;
+    // height: calc(100%-3rem);
+    height: auto;
+    width: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     align-items: center;
+
+    background-size: cover;
 
     .section-flavor {
       font-weight: 300;
@@ -66,7 +85,7 @@
       transform: translateX(-0.5em);
 
       &::before {
-        content: 'Read More';
+        content: "Read More";
         font-size: 3rem;
         font-weight: 400;
         vertical-align: middle;
@@ -79,24 +98,6 @@
         letter-spacing: -0.3rem;
       }
 
-      &::after {
-        content: '';
-        font-size: 3rem;
-        font-weight: 400;
-        position: absolute;
-        top: 0;
-        left: 0;
-        // height: 100px;
-        // width: 100px;
-        background: black;
-
-        transition: inherit;
-        // opacity: 0;
-        white-space: nowrap;
-        transform: translateX(4em);
-        // letter-spacing: -0.3rem;
-      }
-
       &:hover {
         transform: translateX(0);
       }
@@ -106,11 +107,37 @@
         transform: translateX(0);
         letter-spacing: 0.2rem;
       }
+    }
 
-      &:hover::after {
-        transform: translateX(0);
-      }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-size: cover;
+      z-index: -1;
+    }
+  }
 
+  .bg-stacked-steps::after {
+    background-image: url("../img/stacked-steps.svg");
+  }
+
+  .bg-poly-grid::after {
+    background-image: url("../img/poly-grid.svg");
+  }
+
+  .bg-stacked-waves::after {
+    background-image: url("../img/stacked-waves.svg");
+  }
+
+  .bg-stars {
+    background: linear-gradient(#{nth($section-colors, 4)}, black);
+
+    &::after {
+      background-image: url("../img/stars.svg");
     }
   }
 }
