@@ -1,12 +1,23 @@
 @import "mixins";
+@import "variables";
 
 .name-page {
-  height: 100vh;
+  height: calc(100vh);
   display: grid;
   justify-content: center;
   align-items: center;
+  white-space: nowrap;
 
-  background-image: linear-gradient(#f472b6, #fdba74);
+  background: linear-gradient(#f472b6, #fdba74);
+  
+  &::after { /* Filling in the weird gap */
+    content: '';
+    position: absolute;
+    background-color: #fdba74;
+    height: 100%;
+    width: 100vw;
+    top: 100vh;
+  }
 }
 
 .name-title {
@@ -20,7 +31,7 @@
 
 .section {
   position: sticky;
-  border-radius: 12px;
+  border-radius: 10px;
   filter: drop-shadow(0 -8px 8px rgba(0, 0, 0, 0.3));
   @include section-spacing;
   @include section-color;
@@ -30,8 +41,76 @@
     font-weight: normal;
     transition: $hover-duration;
     margin-left: 0.5em;
+    width: fit-content;
     &:hover {
       letter-spacing: 0.6rem;
+    }
+  }
+
+  .section-body {
+    position: relative;
+    height: calc(100%-3rem);
+    width: 100vw;
+    align-items: center;
+
+    .section-flavor {
+      font-weight: 300;
+      font-size: 9rem;
+      height: 100%;
+      vertical-align: middle;
+      position: absolute;
+      right: 5%;
+      white-space: nowrap;
+
+      transition: $hover-duration;
+      transform: translateX(-0.5em);
+
+      &::before {
+        content: 'Read More';
+        font-size: 3rem;
+        font-weight: 400;
+        vertical-align: middle;
+        display: inline-block;
+
+        transition: inherit;
+        opacity: 0;
+        white-space: nowrap;
+        transform: translateX(2em);
+        letter-spacing: -0.3rem;
+      }
+
+      &::after {
+        content: '';
+        font-size: 3rem;
+        font-weight: 400;
+        position: absolute;
+        top: 0;
+        left: 0;
+        // height: 100px;
+        // width: 100px;
+        background: black;
+
+        transition: inherit;
+        // opacity: 0;
+        white-space: nowrap;
+        transform: translateX(4em);
+        // letter-spacing: -0.3rem;
+      }
+
+      &:hover {
+        transform: translateX(0);
+      }
+
+      &:hover::before {
+        opacity: 100%;
+        transform: translateX(0);
+        letter-spacing: 0.2rem;
+      }
+
+      &:hover::after {
+        transform: translateX(0);
+      }
+
     }
   }
 }

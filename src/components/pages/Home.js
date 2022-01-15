@@ -23,6 +23,10 @@ function Home() {
 
         </Section>
 
+        <Section title="Contact" noflavor={true}>
+
+        </Section>
+
       </div>
     </div>
   );
