@@ -71,6 +71,7 @@
     align-items: center;
 
     background-size: cover;
+    border-radius: inherit;
 
     .section-flavor {
       font-weight: 300;
@@ -118,6 +119,7 @@
       right: 0;
       background-size: cover;
       z-index: -1;
+      border-radius: inherit;
     }
   }
 
@@ -135,10 +137,10 @@
 
   .bg-stars {
     background: linear-gradient(#{nth($section-colors, 4)}, black);
-
-    &::after {
-      background-image: url("../img/stars.svg");
-    }
+  }
+  
+  .bg-stars::after {
+    background-image: url("../img/stars.svg");
   }
 }
 
