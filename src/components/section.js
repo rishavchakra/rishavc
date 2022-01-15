@@ -1,4 +1,5 @@
 function Section(props) {
+  const sectionId = '#' + props.id;
   return (
     <div className="section">
       <h1 className="section-title">{props.title}</h1>
