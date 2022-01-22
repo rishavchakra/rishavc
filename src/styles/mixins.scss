@@ -6,6 +6,7 @@
 			top: #{$section-spacing * ($i - 1)}em;
 			// z-index: #{$i};
 			height: calc(100vh - #{$section-spacing * ($i - 1)}em);
+			max-height: calc(100vh - #{$section-spacing * ($i - 1)}em);
 		}
 	}
 }
