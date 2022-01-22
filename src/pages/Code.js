@@ -1,5 +1,5 @@
-import '../../styles/App.scss'
-import SynthwaveScene from "../graphics/synthwave"
+import '../styles/App.scss'
+import SynthwaveScene from "../components/graphics/synthwave"
 
 function Code() {
 	return (<div className='render-canvas-container'>

@@ -6,7 +6,7 @@ import {
   Home,
   Code,
   Art,
-} from './components'
+} from './pages/index.js'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
