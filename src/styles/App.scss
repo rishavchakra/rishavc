@@ -60,6 +60,7 @@
     margin-block: 0;
     height: fit-content;
     width: 100%;
+    white-space: nowrap;
     &:hover {
       letter-spacing: 0.6rem;
     }
@@ -166,7 +167,8 @@
 }
 
 // Individual section styling
-#about-section { // The contents of the about container
+#about-section {
+  // The contents of the about container
   height: 100%;
   max-height: 100%;
   width: 100%;
@@ -224,12 +226,88 @@
   }
 
   #about-desc {
-    background:rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     padding: 1rem;
     margin: 1rem;
   }
+}
 
+#contact {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#contact-form {
+  margin-inline: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+
+  width: 100%;
+
+  .contact-item {
+    font-size: 2rem;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    margin-inline: 2rem;
+    margin-block: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .contact-message {
+    background-color: white;
+    color: black;
+  }
+  .contact-message[contenteditable]:empty::before {
+    content: 'Message';
+    color: gray;
+  }
+  .contact-send {
+    background: nth($section-colors, 4);
+    color: white;
+    border: none;
+    position: relative;
+    overflow: hidden;
+
+    font-size: 2.5rem;
+    padding: 1rem;
+
+    transition: $hover-duration;
+  }
+  .contact-send-invalid {
+    opacity: 0.5;
+  }
+  .contact-send-valid { // Should activate when adequate fields have been filled in
+    opacity: 1;
+
+    transition: $hover-duration;
+    &:hover {
+      letter-spacing: 0.2rem;
+      background-color: transparent;
+    }
+    &::after {
+      content: '';
+      background-color: nth($section-colors, 2);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      z-index: -1;
+
+      transition: $hover-duration;
+      transform: translateX(-200vh) skewX(45deg);
+    }
+
+    &:hover::after {
+      transform: translateX(0) skew(45deg);
+    }
+  }
 }
 
 h3 {
