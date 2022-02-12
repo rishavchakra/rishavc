@@ -1,6 +1,7 @@
 import "./../styles/App.scss";
 
 import Section from "../components/section";
+import ContactForm from "../components/contact";
 
 function Home() {
   return (
@@ -40,7 +41,9 @@ function Home() {
           title="Contact Me"
           noflavor={true}
           img="bg-stars"
-        ></Section>
+        >
+          <ContactForm />
+        </Section>
       </div>
     </div>
   );
