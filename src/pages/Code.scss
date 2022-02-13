@@ -1,0 +1,59 @@
+@import "../styles/variables";
+
+#code-page {
+  background: rgb(25, 10, 66);
+}
+
+#code-name-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .code-name-title {
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 0;
+
+    transition: $hover-duration;
+    &:hover {
+      letter-spacing: 0.3rem;
+    }
+  }
+}
+
+.code-section-title {
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: center;
+
+  transition: $hover-duration;
+  &:hover {
+    letter-spacing: 0.3rem;
+  }
+}
+
+#github-page {
+  h2 {
+    font-weight: 300;
+    font-size: 3rem;
+  }
+  #github-project-name-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 30vh;
+
+    #github-project-name {
+      text-align: center;
+      font-size: 5rem;
+      color: white;
+      text-decoration: underline wavy 2px;
+
+      transition: $hover-duration;
+      &:hover {
+        letter-spacing: 0.4rem;
+      }
+    }
+  }
+}
