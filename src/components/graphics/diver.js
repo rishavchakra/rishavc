@@ -4,6 +4,7 @@ import { useState } from "react";
 const ACCEL = 0.06
 const MAX_SPEED = 1
 
+// Not currently used
 function Diver(props) {
     const [vel, setV] = useState(new THREE.Vector2())
 

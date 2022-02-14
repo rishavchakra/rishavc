@@ -1,5 +1,6 @@
 import React from 'react'
 
+// Not currently used
 function CityLevel(props) {
 	let bldgs = []
 

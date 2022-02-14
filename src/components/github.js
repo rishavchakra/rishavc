@@ -26,6 +26,7 @@ function GithubInfo(props) {
 
   const apiLink = "https://api.github.com/users/rishavchakra";
 
+  // Fetches the languages of the most recently pushed repository
   const fetchProjLangs = (projLangUrl) => {
     fetch(projLangUrl)
       .then((langs) => langs.json())
@@ -42,6 +43,8 @@ function GithubInfo(props) {
         setProjLangs(langList);
       });
   };
+
+  // Fetches most recently pushed repository
   const fetchRecentRepoData = (reposUrl) => {
     fetch(reposUrl)
       .then((res) => res.json())
@@ -81,6 +84,7 @@ function GithubInfo(props) {
       });
   };
 
+  // Fetches profile picture and URLs from Github REST API
   const fetchData = () => {
     let reposUrl;
     fetch(apiLink)
@@ -96,6 +100,7 @@ function GithubInfo(props) {
       });
   };
 
+  // Initialize the app by fetching all data
   useEffect(() => {
     fetchData();
   }, []);

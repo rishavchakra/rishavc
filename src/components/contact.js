@@ -8,6 +8,31 @@ function ContactForm(props) {
 
   const [isValid, setValid] = useState(false);
 
+  // Function to send an email to my email address
+  const sendEmail = (name, message, email) => {
+    console.log('beep boop sending emails');
+    // event.preventDefault();
+  
+    // TODO: Make a new email and add it to the SMTP token instead of spamming my personal
+    if (message !== '') {
+      console.log(name + ": " + message);
+      window.Email.send({
+        SecureToken: "7e8247b6-325b-4f55-9c02-2ba66da71c9b",
+        To: "rishavchakra@gmail.com",
+        From: "rishavchakra@gmail.com",
+        Subject: "WEBSITE Message from: " + (name||'Anonymous'),
+        Body: (name||'Anonymous') + (email||'no email provided\n') + message
+      }).then(
+        message=>console.log(message)
+      );
+  
+      // grecaptcha.execute();
+    } else {
+      console.log('Can\'t send empty email');
+    }
+  }
+
+  // Callback for editing the contents of the contact form
   const handleInput = () => {
     // Shows the submit button as valid if the fields are filled in
     let msgLen = fieldMessage.current.textContent.length
@@ -23,13 +48,14 @@ function ContactForm(props) {
     }
   }
 
+  // Callback for sending the message
   const handleSubmitMessage = () => {
     let [name, email, msg] = [
       fieldName.current.value,
       fieldEmail.current.value,
       fieldMessage.current.value,
     ];
-    alert(name + " at " + email + " says " + msg);
+    sendEmail(name, msg, email)
   };
 
   return (

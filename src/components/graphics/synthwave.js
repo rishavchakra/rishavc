@@ -33,6 +33,7 @@ function Ground(props) {
 	)
 }
 
+// Sun 3D element
 function Sun(props) {
 	const sunMesh = useRef()
 	useFrame(({ clock }) => {
@@ -50,6 +51,7 @@ function Sun(props) {
 	)
 }
 
+// Light rays behind the sun: 3D element
 function Rays(props) {
 	const rayMesh = useRef()
 	useFrame(({ clock }) => {
