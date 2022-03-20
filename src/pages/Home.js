@@ -17,19 +17,26 @@ function Home() {
           img="bg-stacked-steps"
           noflavor={true}
         >
-          <div id="about-section">
-            <div className="img-container">
-              <div className="img-rect-container">
-                <img className="img-rect" src="img/me.jpeg" alt="A picture of Rishav"/>
-              </div>
+
+            <div id="home-about-section">
+                <div className="home-about-pic">
+                    <div className="pic-container">
+                        <img src="img/me.jpeg" alt="Rishav" />
+                    </div>
+                </div>
+
+                <div className="home-about-desc">
+                    <div className="home-about-desc-box">
+                        <h3>
+                            Hi! I'm Rishav Chakravarty.
+                        </h3>
+                        <p>
+                            I'm a student at Dartmouth College.
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <div id="about-desc">
-              <h3>Hi! I'm Rishav.</h3>
-              <p>I'm a student at Dartmouth College in Hanover, New Hampshire.</p>
-            </div>
-
-          </div>
         </Section>
 
         <Section id="code" title="Code" img="bg-poly-grid"></Section>
