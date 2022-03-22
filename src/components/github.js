@@ -1,7 +1,7 @@
 // import axios from "axios";
 import { useEffect, useState } from "react";
 
-const langImages = {
+export const langImages = {
   JavaScript:
     "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
   HTML: "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",

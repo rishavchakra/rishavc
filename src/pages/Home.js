@@ -2,6 +2,7 @@ import "./../styles/App.scss";
 
 import Section from "../components/section";
 import ContactForm from "../components/contact";
+import {langImages} from "../components/github";
 
 function Home() {
   return (
@@ -20,13 +21,13 @@ function Home() {
 
             <div id="home-about-section">
                 <div className="home-about-pic">
-                    <div className="pic-container">
+                    <div className="pic-container borderbox">
                         <img src="img/me.jpeg" alt="Rishav" />
                     </div>
                 </div>
 
                 <div className="home-about-desc">
-                    <div className="home-about-desc-box">
+                    <div className="home-about-desc-box borderbox">
                         <h3>
                             Hi! I'm Rishav Chakravarty.
                         </h3>
@@ -39,7 +40,30 @@ function Home() {
 
         </Section>
 
-        <Section id="code" title="Code" img="bg-poly-grid"></Section>
+        <Section id="code" title="Code" img="bg-poly-grid">
+
+            <div id="home-code-section">
+
+                <div className="home-code-experience-box borderbox">
+                    <h3>Experience</h3>
+                </div>
+
+                <div className="home-code-languages-box borderbox">
+                    <h3>Languages</h3>
+                    {/*Images of all the languages I know*/}
+                    <div className="home-code-languages">
+
+                        {Object.keys(langImages).map((imgsrc) =>
+                            <img src={langImages[imgsrc]}
+                            className="home-code-lang-img" />
+                        )}
+
+                    </div>
+                </div>
+
+            </div>
+
+        </Section>
 
         <Section id="art" title="Art" img="bg-stacked-waves"></Section>
 

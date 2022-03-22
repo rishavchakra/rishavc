@@ -63,7 +63,7 @@ function ContactForm(props) {
 
   return (
     <div id="contact">
-      <form id="contact-form">
+      <form id="contact-form" className="borderbox">
         <input
           placeholder="Name"
           className="contact-item"
