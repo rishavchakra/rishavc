@@ -1,6 +1,6 @@
 import './Code.scss'
 
-import GithubInfo from '../components/github';
+import GithubInfo from '../components/code/github';
 
 function Code() {
   return <div className="App" id='code-page'>

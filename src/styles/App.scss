@@ -344,7 +344,7 @@
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: max(2rem, 2vw);
   font-weight: 600;
   text-align: center;
   overflow-wrap: break-word;
@@ -352,13 +352,13 @@ h3 {
 }
 
 p {
-  font-size: 1.5rem;
+  font-size: max(1.5rem, 1.5vw);
   text-align: center;
   overflow-wrap: break-word;
   hyphens: auto;
 }
 
 .borderbox {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.25);
     border-radius: 2rem;
 }
