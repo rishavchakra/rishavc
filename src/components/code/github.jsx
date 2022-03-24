@@ -1,7 +1,6 @@
-// import axios from "axios";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
-export const langImages = {
+const langImages = {
   JavaScript:
     "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
   HTML: "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
@@ -18,7 +17,7 @@ export const langImages = {
   Java: "https://upload.wikimedia.org/wikipedia/de/e/e1/Java-Logo.svg",
 };
 
-function GithubInfo(props) {
+function GithubInfo() {
   let [profilePic, setProfilePic] = useState("");
   let [profileUrl, setProfileUrl] = useState("");
   let [projInfo, setProjInfo] = useState("");
@@ -26,83 +25,82 @@ function GithubInfo(props) {
 
   const apiLink = "https://api.github.com/users/rishavchakra";
 
-  // Fetches the languages of the most recently pushed repository
-  const fetchProjLangs = (projLangUrl) => {
-    fetch(projLangUrl)
-      .then((langs) => langs.json())
-      .then((langs) => {
-        let langList = [];
-        for (const lang in langs) {
-          langList.push(lang);
+  const fetchGithubData = async () => {
+    const reposUrl = await fetch(apiLink)
+      .then((res) => res.json())
+      .then((res) => {
+        setProfilePic(res.avatar_url)
+        setProfileUrl(res.html_url)
+        return res.repos_url
+      })
+
+    const projUrls = await fetch(reposUrl)
+      .then((res) => res.json())
+      .then((res) => {
+        let projUrlList = []
+        res.forEach((proj) => {
+          projUrlList.push(proj.url)
+        })
+        return projUrlList
+      })
+
+    const projCommitUrls = await fetch(reposUrl)
+      .then((res) => res.json())
+      .then((res) => {
+        let projUrlList = []
+        res.forEach((proj) => {
+          projUrlList.push(proj.commits_url.substring(0, proj.commits_url.indexOf('{')))
+        })
+        return projUrlList
+      })
+
+    const getDate = async (projCommitUrl) => {
+      const date = await fetch(projCommitUrl)
+        .then((res) => res.json())
+        .then((res) => new Date(res[0].commit.author.date))
+      return date
+    }
+
+    const projDates = await Promise.all(
+      projCommitUrls.map((projUrl) => getDate(projUrl))
+    )
+
+    let recentDate = new Date('2000')
+    let recentInd = 0
+    projDates.forEach((projDate, index) => {
+      if (projDate > recentDate) {
+        recentDate = projDate
+        recentInd = index
+      }
+    })
+
+    const projInfo = await fetch(projUrls[recentInd])
+      .then((res) => res.json())
+      .then((projInfo) => {
+        return {
+          name: projInfo.name,
+          url: projInfo.html_url,
+          desc: projInfo.description,
+          push_date: projInfo.pushed_at,
+          langs_url: projInfo.languages_url
         }
-        return langList;
       })
-      .then((langList) => {
-        // TODO: Update the list of languages in the project
-        // console.log(langList);
-        setProjLangs(langList);
-      });
-  };
 
-  // Fetches most recently pushed repository
-  const fetchRecentRepoData = (reposUrl) => {
-    fetch(reposUrl)
+    const projLangs = await fetch(projInfo.langs_url)
       .then((res) => res.json())
-      .then((res) => {
-        // Get the most recent entry
-        let latestDate = new Date("2000");
-        let recentProj = res[0];
-        res.forEach((element) => {
-          // 'updated_at'
-          let date = element.updated_at;
-          date = new Date(date.substring(0, date.indexOf("T")));
+      .then((langs) =>
+        Object.entries(langs).sort((a, b) => b[1] - a[1])
+        .map((langinfo) => langinfo[0])
+      )
 
-          if (date > latestDate) {
-            latestDate = date;
-            recentProj = element;
-          }
-        });
-        return recentProj;
-      })
-      .then((recentProj) => {
-        //   TODO: Update the project's information from this
-        // console.log(recentProj);
-        // console.log(recentProj.html_url);
-        // console.log(recentProj.description);
-        // console.log(recentProj.languages_url);
-        // console.log(recentProj.pushed_at);
-        setProjInfo({
-          name: recentProj.name,
-          url: recentProj.html_url,
-          desc: recentProj.description,
-          push_date: recentProj.pushed_at,
-        });
-        return recentProj.languages_url;
-      })
-      .then((projLangs) => {
-        fetchProjLangs(projLangs);
-      });
-  };
+    setProjLangs(projLangs)
+    setProjInfo(projInfo)
 
-  // Fetches profile picture and URLs from Github REST API
-  const fetchData = () => {
-    let reposUrl;
-    fetch(apiLink)
-      .then((res) => res.json())
-      .then((res) => {
-        setProfilePic(res.avatar_url);
-        setProfileUrl(res.html_url);
-        reposUrl = res.repos_url;
-        return reposUrl;
-      })
-      .then((reposUrl) => {
-        fetchRecentRepoData(reposUrl);
-      });
   };
 
   // Initialize the app by fetching all data
   useEffect(() => {
-    fetchData();
+    fetchGithubData()
   }, []);
 
   return (
@@ -116,7 +114,7 @@ function GithubInfo(props) {
       <div id='code-projs-langs'>
         {projLangs.map((lang) =>
           langImages[lang] ? (
-            <img src={langImages[lang]} key={lang} className='code-proj-lang-img'/>
+            <img src={langImages[lang]} key={lang} className='code-proj-lang-img' />
           ) : (
             <p className="code-proj-lang-name">{lang}</p>
           )
@@ -126,5 +124,4 @@ function GithubInfo(props) {
     </div>
   );
 }
-
 export default GithubInfo;
