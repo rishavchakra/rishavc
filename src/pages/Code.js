@@ -1,5 +1,6 @@
 import './Code.scss'
 
+import CodeLanguages from '../components/code/languages';
 import GithubInfo from '../components/code/github';
 
 function Code() {
@@ -12,9 +13,13 @@ function Code() {
 
     </section>
 
+    <section id='code-languages'>
+      <h1 className="code-section-title">Languages</h1>
+      <CodeLanguages />
+    </section>
+
     <section id='code-projects'>
       <h1 className="code-section-title">Projects</h1>
-
     </section>
 
     <section id='code-current'>

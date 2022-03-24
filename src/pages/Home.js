@@ -24,17 +24,17 @@ function Home() {
         </Section>
 
         <Section
-            id="code"
-            title="Code"
-            img="bg-poly-grid"
+          id="code"
+          title="Code"
+          img="bg-poly-grid"
         >
-            <HomeCode />
+          <HomeCode />
         </Section>
 
         <Section id="art" title="Art" img="bg-stacked-waves">
-            <div className="home-art-box">
+          <div className="home-art-box">
 
-            </div>
+          </div>
         </Section>
 
         <Section
