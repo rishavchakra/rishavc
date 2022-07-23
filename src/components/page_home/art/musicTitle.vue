@@ -15,7 +15,7 @@ const colors: string[] = [
 <template>
   <h1
     :style="{
-      'animation-delay': (titleOscDelay * num - 2) + 's',
+      'animation-delay': titleOscDelay * num - 2 + 's',
       color: colors[num % colors.length],
       left: xOffset * num + 'px',
     }"

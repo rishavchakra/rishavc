@@ -1,8 +1,8 @@
 <template>
-<div>
+  <div>
     <p>Beep boop</p>
     <Github />
-</div>
+  </div>
 </template>
 
 <script lang="ts">

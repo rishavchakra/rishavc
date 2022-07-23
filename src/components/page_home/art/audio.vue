@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import MusicTitle from "./musicTitle.vue";
-const numTitles = 7
+const numTitles = 7;
 </script>
 
 <template>

@@ -26,7 +26,7 @@ const router = createRouter({
       path: "/art",
       name: "art",
       component: () => import("@/views/CodeView.vue"),
-    }
+    },
   ],
 });
 
