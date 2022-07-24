@@ -7,14 +7,15 @@ import type {
   GithubProjData,
   GithubProjLangs,
 } from "./github";
-const apiLink = "https://api.github.com/users/rishavchakra";
+// const apiLink = "https://api.github.com/users/rishavchakra";
+const STORE_GH_DATA = "ghdata";
 </script>
 
 <template>
   <div>
     <p>Github stuff</p>
-    <p>{{ profileUrl }}</p>
-    <img src="{{ profilePic }}" />
+    <p>{{ githubData.profileUrl }}</p>
+    <img src="{{ githubData.profilePic }}" />
   </div>
 </template>
 
@@ -23,10 +24,12 @@ import { defineComponent } from "vue";
 export default defineComponent({
   data() {
     return {
-      profilePic: "",
-      profileUrl: "",
-      projInfo: {} as GithubProjData,
-      projLangs: [] as string[],
+      githubData: {
+        profilePic: "",
+        profileUrl: "",
+        projInfo: {} as GithubProjData,
+        projLangs: [] as string[],
+      },
     };
   },
 
@@ -78,34 +81,44 @@ export default defineComponent({
         .then((res) => res.json())
         .then((res) => res as GithubProjLangs);
     },
+
+    async fetchSetGithubData() {
+      const profileData = await this.fetchProfileData();
+      console.log(profileData);
+      this.githubData.profilePic = profileData.avatar_url;
+      this.githubData.profileUrl = profileData.html_url;
+
+      const reposData = await this.fetchReposData(profileData);
+      console.log(reposData);
+
+      const projDates = await Promise.all(
+        reposData.map((proj) => {
+          console.log(proj);
+          return this.fetchRepoCommitDate(proj);
+        })
+      );
+      let recentDate = new Date("2000"); // Arbitrary date before all commits
+      let recentInd = 0;
+      projDates.forEach((projDate, index) => {
+        if (projDate > recentDate) {
+          recentDate = projDate;
+          recentInd = index;
+        }
+      });
+
+      const recentProjData = await this.fetchProjInfo(reposData[recentInd]);
+      this.githubData.projInfo = recentProjData;
+    },
   },
 
   async mounted() {
-    const profileData = await this.fetchProfileData();
-    console.log(profileData);
-    this.profilePic = profileData.avatar_url;
-    this.profileUrl = profileData.html_url;
-
-    const reposData = await this.fetchReposData(profileData);
-    console.log(reposData);
-
-    const projDates = await Promise.all(
-      reposData.map((proj) => {
-        console.log(proj);
-        return this.fetchRepoCommitDate(proj);
-      })
-    );
-    let recentDate = new Date("2000"); // Arbitrary date before all commits
-    let recentInd = 0;
-    projDates.forEach((projDate, index) => {
-      if (projDate > recentDate) {
-        recentDate = projDate;
-        recentInd = index;
-      }
-    });
-
-    const recentProjData = await this.fetchProjInfo(reposData[recentInd]);
-    this.projInfo = recentProjData;
+    const storageData = localStorage.getItem(STORE_GH_DATA);
+    if (storageData) {
+      this.githubData = JSON.parse(storageData);
+    } else {
+      await this.fetchSetGithubData();
+      localStorage.setItem(STORE_GH_DATA, JSON.stringify(this.githubData));
+    }
   },
 });
 </script>
