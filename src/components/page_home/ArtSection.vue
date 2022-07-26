@@ -1,15 +1,15 @@
 <template>
   <div>
-    <Audio v-if="onArtSlide" />
+    <AudioExhib v-if="onArtSlide" />
     <button @click="onClickSwitchAV">{{ otherArtType }}</button>
-    <Visual v-if="onVisualSlide" />
+    <VisualExhib v-if="onVisualSlide" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Audio from "./art/audio.vue";
-import Visual from "./art/visual.vue";
+import AudioExhib from "./art/AudioExhib.vue";
+import VisualExhib from "./art/VisualExhib.vue";
 type artTypes = "audio" | "visual";
 export default defineComponent({
   data() {
@@ -24,7 +24,7 @@ export default defineComponent({
     },
   },
 
-  components: { Audio, Visual },
+  components: { AudioExhib, VisualExhib },
 
   computed: {
     onArtSlide(): boolean {

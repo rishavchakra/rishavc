@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import Contact from "../components/page_home/contact.vue";
-import About from "@/components/page_home/about.vue";
-import Art from "@/components/page_home/art.vue";
-import Code from "@/components/page_home/code.vue";
+import Contact from "../components/page_home/ContactSection.vue";
+import About from "@/components/page_home/AboutSection.vue";
+import Art from "@/components/page_home/ArtSection.vue";
+import Code from "@/components/page_home/CodeSection.vue";
 </script>
 
 <template>

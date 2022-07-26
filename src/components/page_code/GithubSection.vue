@@ -8,7 +8,6 @@ import type {
   GithubProjLangs,
 } from "./github";
 // const apiLink = "https://api.github.com/users/rishavchakra";
-const STORE_GH_DATA = "ghdata";
 </script>
 
 <template>
@@ -20,6 +19,7 @@ const STORE_GH_DATA = "ghdata";
 </template>
 
 <script lang="ts">
+const STORE_GH_DATA = "ghdata";
 import { defineComponent } from "vue";
 export default defineComponent({
   data() {

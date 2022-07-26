@@ -6,8 +6,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  data() {},
-
   computed: {
     // Because I'm too lazy to be bothered to update it every year
     age() {

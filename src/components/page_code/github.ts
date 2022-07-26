@@ -19,7 +19,7 @@ interface GithubProjCommitData {
   commits: GithubCommitData[];
 }
 
-type GithubReposData = GithubRepoData[]
+type GithubReposData = GithubRepoData[];
 
 interface GithubProjData {
   name: string;
@@ -33,7 +33,7 @@ interface GithubProjLangs {
   langs: GithubLang[];
 }
 
-interface GithubLang {}
+type GithubLang = string;
 
 export type {
   GithubProfileData,

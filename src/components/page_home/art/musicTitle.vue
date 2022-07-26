@@ -1,23 +1,13 @@
 <script setup lang="ts">
-const titleOscDelay = 0.1;
-const xOffset = 6;
-const colors: string[] = [
-  "#edbb2", // white
-  "#8ec07c", // aqua
-  "#de869b", // purple
-  "#83a598", // blue
-  "#fabd2f", // yellow
-  "#babb26", // green
-  "#fb4934", // red
-];
+import { musicTitleConsts as consts } from "@/components/constants";
 </script>
 
 <template>
   <h1
     :style="{
-      'animation-delay': titleOscDelay * num - 2 + 's',
-      color: colors[num % colors.length],
-      left: xOffset * num + 'px',
+      'animation-delay': consts.titleOscDelay * num - 2 + 's',
+      color: consts.gruvColors[num % consts.gruvColors.length],
+      left: consts.xOffset * num + 'px',
     }"
   >
     Music
@@ -27,8 +17,6 @@ const colors: string[] = [
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  data() {},
-
   props: {
     num: { type: Number, required: true },
   },
@@ -36,8 +24,8 @@ export default defineComponent({
   computed: {
     styleObject() {
       return {
-        "animation-delay": this.num * titleOscDelay,
-        color: colors[this.num],
+        "animation-delay": this.num * consts.titleOscDelay,
+        color: consts.gruvColors[this.num],
       };
     },
   },
