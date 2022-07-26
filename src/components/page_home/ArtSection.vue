@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <AudioExhib v-if="onArtSlide" />
-    <button @click="onClickSwitchAV">{{ otherArtType }}</button>
-    <VisualExhib v-if="onVisualSlide" />
+  <div class="h-screen w-screen flex flex-row">
+    <AudioExhib v-if="onArtSlide" class="art-exhib" />
+    <button @click="onClickSwitchAV" class="p-8">{{ otherArtType }}</button>
+    <VisualExhib v-if="onVisualSlide" class="art-exhib" />
   </div>
 </template>
 

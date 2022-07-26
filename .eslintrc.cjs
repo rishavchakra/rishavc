@@ -9,4 +9,5 @@ module.exports = {
     "@vue/eslint-config-typescript/recommended",
     "@vue/eslint-config-prettier",
   ],
+  ignorePatterns: [".gitignore", "tailwind.config.js", "postcss.config.js"],
 };

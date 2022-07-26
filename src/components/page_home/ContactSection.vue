@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <input v-model="name" />
-    <input v-model="email" />
-    <input v-model="msg" />
-    <button :disabled="isInvalidContact" @click="onClickSend">Send</button>
+  <div class="h-screen w-screen grid place-content-center">
+    <div class="w-[inherit] flex flex-col gap-4 p-8">
+      <input v-model="name" />
+      <input v-model="email" />
+      <input v-model="msg" />
+      <button :disabled="isInvalidContact" @click="onClickSend">Send</button>
+    </div>
   </div>
 </template>
 

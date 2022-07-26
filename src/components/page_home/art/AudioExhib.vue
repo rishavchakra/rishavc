@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import MusicTitle from "@/components/page_home/art/musicTitle.vue";
+import MusicTitle from "@/components/page_home/art/MusicTitle.vue";
 const numTitles = 7;
 </script>
 
 <template>
   <div>
-    <div class="title-container">
+    <div class="w-full h-full relative grid place-content-center">
       <MusicTitle v-for="n in numTitles" :num="numTitles - n" :key="n" />
     </div>
   </div>
@@ -15,9 +15,3 @@ const numTitles = 7;
 import { defineComponent } from "vue";
 export default defineComponent({});
 </script>
-
-<style scoped lang="scss">
-.title-container {
-  position: relative;
-}
-</style>

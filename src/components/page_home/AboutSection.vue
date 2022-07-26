@@ -1,6 +1,8 @@
 <template>
-  <p>Hi! I'm Rishav.</p>
-  <p>I'm an {{ age }} year old undergraduate at Dartmouth College.</p>
+  <div class="h-screen w-screen">
+    <p>Hi! I'm Rishav.</p>
+    <p>I'm an {{ age }} year old undergraduate at Dartmouth College.</p>
+  </div>
 </template>
 
 <script lang="ts">

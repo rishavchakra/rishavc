@@ -9,6 +9,7 @@ import { musicTitleConsts as consts } from "@/components/constants";
       color: consts.gruvColors[num % consts.gruvColors.length],
       left: consts.xOffset * num + 'px',
     }"
+    class="music-title text-9xl font-['Chicle'] absolute top-0 stroke-black"
   >
     Music
   </h1>
@@ -31,29 +32,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Chicle&display=swap");
-@keyframes oscillate {
-  from {
-    transform: none;
-  }
-
-  to {
-    transform: translateY(3rem);
-  }
-}
-
-h1 {
-  font-size: 8rem;
-  font-family: Chicle;
-  opacity: 100%;
-
-  -webkit-text-stroke: 3px #3c3836;
-
-  position: absolute;
-  top: 0;
-
-  animation: 3s infinite alternate-reverse ease-in-out oscillate;
-}
-</style>
