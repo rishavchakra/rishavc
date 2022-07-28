@@ -4,8 +4,8 @@ const numTitles = 7;
 </script>
 
 <template>
-  <div>
-    <div class="w-full h-full relative grid place-content-center">
+  <div class="w-full h-full relative grid place-content-center">
+    <div class="">
       <MusicTitle v-for="n in numTitles" :num="numTitles - n" :key="n" />
     </div>
   </div>

@@ -43,3 +43,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.art-exhib {
+  @apply h-screen;
+  @apply w-screen;
+}
+</style>

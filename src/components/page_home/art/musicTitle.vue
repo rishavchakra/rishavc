@@ -9,7 +9,7 @@ import { musicTitleConsts as consts } from "@/components/constants";
       color: consts.gruvColors[num % consts.gruvColors.length],
       left: consts.xOffset * num + 'px',
     }"
-    class="music-title text-9xl font-['Chicle'] absolute top-0 stroke-black"
+    class="music-title animate-oscillate text-9xl font-['Chicle'] absolute top-0 stroke-black text-center"
   >
     Music
   </h1>
@@ -32,3 +32,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.music-title {
+  -webkit-text-stroke: 3px #3c3836;
+}
+</style>

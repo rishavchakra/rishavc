@@ -3,22 +3,4 @@
 @tailwind utilities;
 
 @layer components {
-  @keyframes oscillate {
-    from {
-      transform: translateY(-1.5rem);
-    }
-
-    to {
-      transform: translateY(1.5rem);
-    }
-  }
-  .music-title {
-    -webkit-text-stroke: 3px #3c3836;
-    animation: 3s infinite alternate-reverse ease-in-out oscillate;
-  }
-
-  .art-exhib {
-    @apply h-screen;
-    @apply w-screen;
-  }
 }

@@ -8,11 +8,11 @@ import TitleSection from "@/components/page_home/TitleSection.vue";
 
 <template>
   <main>
-    <TitleSection />
-    <AboutSection />
-    <CodeSection />
-    <ArtSection />
-    <ContactSection />
+    <TitleSection id="title-section" />
+    <AboutSection id="about-section" />
+    <CodeSection id="code-section" />
+    <ArtSection id="art-section" />
+    <ContactSection id="contact-section" />
   </main>
 </template>
 
