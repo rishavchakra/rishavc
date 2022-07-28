@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { musicTitleConsts as consts } from "@/components/constants";
+import { musicTitleConsts as consts } from "@/components/lib";
 </script>
 
 <template>

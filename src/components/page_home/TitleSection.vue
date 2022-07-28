@@ -27,14 +27,14 @@
           <h2
             class="role-title"
             v-else-if="roleIndex == 2"
-            @click="goToSection('art-section')"
+            @click="goToSection('art-section', 'audio')"
           >
             Musician
           </h2>
           <h2
             class="role-title"
             v-else-if="roleIndex == 3"
-            @click="goToSection('art-section')"
+            @click="goToSection('art-section', 'visual')"
           >
             Artist
           </h2>
@@ -46,12 +46,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-const sections = [
-  "about-section",
-  "code-section",
-  "art-section",
-  "contact-section",
-];
+import type { artTypes } from "../lib";
+import { store } from "./store";
 export default defineComponent({
   data() {
     return {
@@ -69,11 +65,14 @@ export default defineComponent({
       this.roleIndex = (this.roleIndex + 1) % 4;
     },
 
-    goToSection(section: string) {
+    goToSection(section: string, artMode?: artTypes) {
       // document
       //   .getElementById(sections[this.roleIndex])
       //   ?.scrollIntoView({ behavior: "smooth" });
       document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
+      if (section == "art-section" && artMode) {
+        store.artMode = artMode;
+      }
     },
   },
 

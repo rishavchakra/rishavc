@@ -10,17 +10,20 @@
 import { defineComponent } from "vue";
 import AudioExhib from "./art/AudioExhib.vue";
 import VisualExhib from "./art/VisualExhib.vue";
-type artTypes = "audio" | "visual";
+import type { artTypes } from "../lib";
+import { store } from "./store";
 export default defineComponent({
   data() {
-    return {
-      artType: "audio" as artTypes,
-    };
+    return {};
   },
 
   methods: {
     onClickSwitchAV() {
-      this.artType = this.otherArtType;
+      store.artMode = this.otherArtType;
+    },
+
+    setToAV(mode: artTypes) {
+      store.artMode = mode;
     },
   },
 
@@ -28,13 +31,13 @@ export default defineComponent({
 
   computed: {
     onArtSlide(): boolean {
-      return this.artType === "audio";
+      return store.artMode === "audio";
     },
     onVisualSlide(): boolean {
-      return this.artType === "visual";
+      return store.artMode === "visual";
     },
     otherArtType(): artTypes {
-      if (this.artType === "audio") {
+      if (store.artMode === "audio") {
         return "visual";
       } else {
         return "audio";

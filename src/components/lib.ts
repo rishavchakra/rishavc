@@ -12,4 +12,7 @@ const musicTitleConsts = {
   ],
 };
 
+type artTypes = "audio" | "visual";
+
 export { musicTitleConsts };
+export type { artTypes };
