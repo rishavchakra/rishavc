@@ -24,8 +24,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 type inputElement = {
-  textContent: string
-}
+  textContent: string;
+};
 export default defineComponent({
   data() {
     return {
